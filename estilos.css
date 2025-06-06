@@ -99,6 +99,7 @@
       margin-top: 1em;
       padding: 0.2em;
       width: 50%;
+      transition: 0.3s;
       }
     button:hover {
       background-color: var(--colorAzul);
@@ -259,6 +260,7 @@
       color: var(--colorRosado);
       text-align: center;
       text-decoration: none;
+      transition: 0.3s;
       }
     .boton2:hover {
       background-color: var(--colorVerde);
@@ -283,6 +285,7 @@
       text-align: center;
       border: none; 
       cursor: pointer;
+      transition: 0.3s;
       }
     .boton:hover {
       background-color: var(--colorVerde);
@@ -398,10 +401,12 @@
       background-color: var(--colorRosado);
       font-size: 1.2em;
       margin-left: 1em;
+      transition: 0.3s;
     }
     .cabeza:hover {
       color: var(--colorRosado);
       background-color: var(--colorAzul);
+      transform:translateY(0.2em);
     }
     .cabeza2{
       display: none;
@@ -513,10 +518,12 @@
        color: var(--colorRosado);
        background-color: var(--colorAzul);
        font-size: 1.2em;
+       transition: 0.3s;
        }
     .cabeza2:hover {
        color: var(--colorAzul);
        background-color: var(--colorRosado);
+       transform:translateY(0.2em);
        }
     .cabezal{
        background-color: var(--colorVerde);
