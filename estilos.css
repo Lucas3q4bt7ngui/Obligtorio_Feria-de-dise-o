@@ -156,7 +156,7 @@
       border-radius: 0;
       }     
       /* aspectos para el section articles */
-    #actividades article{
+      #actividades article{
       background-color: var(--colorAzul); 
       margin-bottom: 1em;
       margin-top: 2em; 
@@ -202,10 +202,16 @@
       border-radius: 0;
       } 
       /* se utiliza en los primeros section */
-    .contenedor, .contenedor1, .centrado{
+    .contenedor, .centrado{
       flex-wrap: wrap;
       margin: 0 auto;
-      width: 50%;
+      width: 20em;
+      max-width: 75em; 
+      margin-bottom: 3em;  
+      }
+      .contenedor1{
+      margin: 0 auto;
+      width: 25em;
       max-width: 75em; 
       margin-bottom: 3em;  
       }
