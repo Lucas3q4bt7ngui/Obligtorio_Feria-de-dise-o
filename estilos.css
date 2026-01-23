@@ -13,7 +13,7 @@
       font-family: "Roboto", sans-serif;
     }
     #ham img{
-      scale:35%;
+      scale:20%;
     }
     nav{
       display: none;
@@ -51,8 +51,7 @@
   display: block;
 }
     .footer-section {
-      padding-left: 6em;
-      padding-right: 6em;
+      padding-left: 3em;
     }
     .footer-section p {
       margin: 5px 0;
@@ -155,7 +154,7 @@
       margin: 0 auto;
       }
       .imagen{
-       display: flex;
+       display: inline-block;
        scale: 70%;
        justify-content: center;
       }   
@@ -205,17 +204,16 @@
       } 
       #actividades article{
       border: 0.3em solid #104CAD;
-      margin-bottom: 1em;
-      margin-top: 2em; 
-      padding: 1em;
+      margin: 0 auto; 
+      padding: 0 1em;
       border-radius: 1em;
       display: flex;
       flex-direction: column;
       gap: 1.3em;
       align-items: center;
-      flex-basis: 1em;
-      width: 100%; /* Que ocupen el ancho disponible en móvil */
-      max-width: 14em;
+      justify-content: center;
+      width: 100%; 
+      max-width: 18em;
       }
       #informacion {
         display: grid;
@@ -251,6 +249,12 @@
       #actividades .especial {
        width: 100%;
       border: none;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      } 
+      #actividades .especial h2 {
+      text-align: center;
+      font-size: 1.8em;  /* Un poco más pequeño para que no rompa en 2 líneas */
       } 
     #actividades img{
       height: 6em;
@@ -479,7 +483,7 @@
       padding-top: 2em;
       }
       #clientes img {
-      scale: 50%;
+      scale: 25%;
       }
       #fondo{
       background: var(--colorAzul);
@@ -529,7 +533,9 @@
   to {translate: -100%; }
 }
 @media all and (min-width:768px){
-
+      #clientes img {
+      scale: 50%;
+      }
   #informacion{
     display: flex;
   }
