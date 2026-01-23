@@ -151,6 +151,11 @@
       justify-content: center;
       margin: 0 auto;
       }
+      .imagen{
+       display: flex;
+       scale: 70%;
+       justify-content: center;
+      }   
     fieldset {
       display: flex;
       flex-direction: column;
@@ -221,17 +226,16 @@
       width: 14em;
       }
       #informacion {
-        display: flex;
+        display: grid;
         margin-bottom: 5em;
         margin-top: 5em;
         gap: 2em;
         justify-content: center;
       } 
       #informacion1 {
-        display: flex;
         margin-left:auto;
         margin-right: auto; 
-        max-width: 1160px;
+        max-width: 500px;
         margin-bottom: 10em;
         margin-top: 10em;
       } 
@@ -271,8 +275,9 @@
       }
       .head{
       scale: 35%;
+      display:block;
       align-items: center;
-      padding-bottom: 1em;
+      margin-top: -1em;
       }
     .boton img{
       width: 10%;
@@ -298,7 +303,7 @@
       font-size: 1em;
     }
     .mapa{
-      padding-top: 4em;
+      scale: 70%;
     }
     .oficina{
       display: flex;
@@ -341,7 +346,6 @@
       } 
       /* se utiliza en los primeros section */
     .contenedor, .centrado{
-      flex-wrap: wrap;
       margin: 0 auto;
       width: 20em;
       max-width: 75em; 
@@ -536,11 +540,20 @@
   to {translate: -100%; }
 }
 @media all and (min-width:768px){
-h2{
+
+  #informacion{
+    display: flex;
+  }
+  h2{
   text-align: center;
 }
+.mapa{
+      padding-top: 4em;
+      scale: 100%;
+    }
   #informacion1 {
         display: block;
+        max-width: 1160px;
         margin-left: 3em;
         margin-right: 3em;
       } 
@@ -593,7 +606,8 @@ h2{
     }
     /* section articles */
     #actividades{
-      display: flex; 
+      display: flex;
+      flex-wrap: wrap; 
       min-width: 48em;
       justify-content: center;
       text-align: center;
