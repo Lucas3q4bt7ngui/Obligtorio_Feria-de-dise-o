@@ -51,7 +51,7 @@
   display: block;
 }
     .footer-section {
-      padding-left: 3em;
+      padding-left: 2em;
     }
     .footer-section p {
       margin: 5px 0;
@@ -116,7 +116,7 @@
       color: var(--colorBlanco);
       }
     h2 {
-      font-size: 2.5em;
+      font-size: 1.5em;
       color: var(--colorAzul);
       
       }  
@@ -126,7 +126,7 @@
       
       }
     p {
-      font-size: 1.4em;
+      font-size: 1em;
       margin-top: 2em;
       padding-right: 3em;
       text-align: left;
@@ -154,9 +154,8 @@
       margin: 0 auto;
       }
       .imagen{
-       display: inline-block;
-       scale: 70%;
        justify-content: center;
+       scale: 70%;
       }   
     fieldset {
       display: flex;
@@ -190,7 +189,7 @@
     button{
       background-color:var(--colorNaranja);
       color: var(--colorBlanco);
-      margin-left: 6em;
+      margin-left: 3.5em;
       font-size: 1.3em;
       border-radius: 0.5em;
       margin-top: 1em;
@@ -227,6 +226,10 @@
         margin-right: auto; 
         margin-bottom: 10em;
         margin-top: 10em;
+      } 
+      #informacion1 article, #informacion1 p {
+        text-align: center;
+        padding-right: 0;
       } 
 
       #informacion2 {
@@ -306,9 +309,8 @@
       margin-top: 0em;
     }
     .oficina img{
-      display: flex;
       padding-right: 0.2em;
-      padding-bottom: 0.8em;
+      padding-bottom: 0.2em;
     }
     .redes:hover img,.redes1:hover img, .piepag:hover, .piepag1:hover{
       transform: scale(120%);
@@ -341,7 +343,6 @@
     .contenedor, .centrado, #informacion1{
       margin: 0 auto;
       width: 90%;
-      max-width: 75em; 
       margin-bottom: 3em;  
       }
 .slide {
@@ -414,7 +415,7 @@
       /* se utiliza en el segundo section */
     .centrado{
       align-items: center;
-      padding: 6em 0;
+      padding:6em  0;
       }
       /* se utiliza en section grid */
     .boceto{ 
@@ -532,8 +533,16 @@
   from {translate: 0; }
   to {translate: -100%; }
 }
-@media all and (min-width:768px){
-      #clientes img {
+@media all and (min-width:768px){   
+    .oficina{
+      display: flex;
+      justify-content: space-between;
+    }
+        .oficina img{
+      padding-right: 0.2em;
+      padding-bottom: 0.8em;
+    }
+  #clientes img {
       scale: 50%;
       }
   #informacion{
@@ -593,6 +602,7 @@
       border: none;
       background-color: var(--colorBlanco);
       text-align: center;
+     max-width: 100%;
 } 
     /* section grid */
     /* pie de página */
@@ -603,16 +613,13 @@
     #actividades{
       display: flex;
       flex-wrap: wrap; 
-      min-width: 48em;
       justify-content: center;
       text-align: center;
+      max-width: 500px;
     }
     #actividades article{
-      margin-left: 2em;
       align-items: center;
       width: 14em;
-      padding-left: 2em;
-      padding-right: 2em;
     }
     #actividades .article4 img{
       display: block;
@@ -677,6 +684,7 @@
   h2{
     text-align: left;
   } 
+
     .imagen{
        scale: 102%;
       } 
@@ -716,15 +724,20 @@
         color: var(--colorblanco);
         margin: 0 1em;
         } 
-    /* section articles */     
+    /* section articles */
+    #actividades{
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: center;
+      text-align: center;
+      max-width: 920px;
+    }  
     #actividades article{    
        flex-basis: 21em;
        align-items: center;
        text-align: center;
        }
-    #actividades{    
-       min-width: 75em;
-       } 
+
     #actividades .especial {
       flex-basis: 100%;
       border: none;
@@ -735,6 +748,6 @@
        height: 6em;
        }
     .contenedor{
-       max-width: none;
-       }
+       max-width: none;  
 }
+  } 
