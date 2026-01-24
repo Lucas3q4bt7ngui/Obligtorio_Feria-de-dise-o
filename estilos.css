@@ -11,7 +11,6 @@
       padding: 0;
       box-sizing: border-box;
       font-family: "Roboto", sans-serif;
-      max-width: 100%;
     }
     #ham img{
       scale:20%;
@@ -291,11 +290,13 @@
     }
         #telefono{
       display: flex;
-      flex-direction: column;
       background-color: var(--colorAzul);
       height: auto;
       text-align: center;
-      padding-top: 0.5em;
+      height: auto; /* Para que si el texto baja de línea, no se corte */
+      flex-direction: column;
+      padding: 10px;
+      align-items: center;
     }
     #telefono p{
       color: var(--colorBlanco);
@@ -304,14 +305,24 @@
       margin-top: 0;
     }
     .mapa{
-      scale: 70%;
+      width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
     }
+    .mapa iframe {
+    width: 100% ;
+    max-width: 300px; /* Para que no se pegue a los bordes */
+    height: 250px;
+}
     .oficina{
       flex-direction: column; /* Apila icono y número */
       align-items: center;
     }
     .oficina p{
-      margin-top: 0em;
+      margin-top: 0;
+      font-size: 13px; /* Un poco más pequeña para 320px */
+      text-align: center;
     }
     .oficina img{
       padding-right: 0.2em;
@@ -486,15 +497,25 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        overflow: hidden;
+        padding: 2em 0;
       }
       #clientes h3{
       padding-top: 2em;
       }
       #clientes img {
-      width: 100px; /* Tamaño real en px, no scale */
-    height: auto;
-    display: block;
+      width: 100%; /* Tamaño real en px, no scale */
+      height: auto;
+      scale: 1;
       }
+      #clientes > img { /* La imagen de métodos de pago al final */
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    margin-top: 2em;
+    scale: 1; /* Asegurar que no se vea minúscula */
+}
       #fondo{
       background: var(--colorAzul);
       align-items: center;
@@ -514,6 +535,7 @@
       display: none;
       }
 .carousel{
+    margin-top: 2em;
     width: 100%; 
     overflow: hidden; /* Importante: oculta lo que desborda */
     display: flex;
@@ -522,16 +544,17 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
       } 
 .card{
-      flex-shrink: 0;
-    padding: 0 20px; /* Espacio entre logos */
+    width: 120px;
+    margin: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
       }
  .group{
       display: flex;
     align-items: center;
     flex-shrink: 0; /* EVITA QUE EL GRUPO SE ACHIQUE A 0 */
-    min-width: 100%; /* Asegura que cada grupo ocupe al menos el ancho de la pantalla */
-    justify-content: space-around;
-    animation: spin 25s linear infinite;
+    animation: spin 25s  infinite linear;
       }   
   .carousel::-webkit-scrollbar{
       display: none;
@@ -539,8 +562,8 @@
 
       @keyframes spin {
   /* Foto 1: Posición inicial */
-  0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+  from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
 }
 @media all and (min-width:768px){ 
   .boton{
