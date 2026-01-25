@@ -12,8 +12,9 @@
       box-sizing: border-box;
       font-family: "Roboto", sans-serif;
     }
+
     #ham img{
-      scale:20%;
+      scale:40%;
     }
     nav{
       display: none;
@@ -131,12 +132,14 @@
       padding-right: 3em;
       text-align: left;
       color: var(--colorNegrol);
+      text-decoration: none;
       }
     ul,li{
       list-style: none;
       color: var(--colorAzul);
       font-size: 1em;
       padding-bottom: 0.3em;
+      text-decoration: none;
     }
     .bold{
       font-weight: bold;
@@ -213,7 +216,13 @@
       justify-content: center;
       width: 100%; 
       max-width: 18em;
+      margin-top: 2em;
+      text-align: center;
+      height: 11em;
       }
+      #actividades .article2{
+        height: 15em;
+        }
       #informacion {
         display: grid;
         margin-bottom: 5em;
@@ -289,14 +298,16 @@
       height: 4em;
     }
         #telefono{
-      display: flex;
       background-color: var(--colorAzul);
-      height: auto;
       text-align: center;
-      height: auto; /* Para que si el texto baja de línea, no se corte */
-      flex-direction: column;
-      padding: 10px;
-      align-items: center;
+    flex-direction: row; /* Cambiamos a horizontal */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    height: auto;
+    min-height: 40px; /* Un poco de altura fija para que respire */
+    padding-top: 1em;
+
     }
     #telefono p{
       color: var(--colorBlanco);
@@ -316,17 +327,23 @@
     height: 250px;
 }
     .oficina{
-      flex-direction: column; /* Apila icono y número */
-      align-items: center;
+      display: flex;
+    flex-direction: row; /* Fuerza la alineación horizontal */
+    align-items: center; /* Centra verticalmente el icono con el texto */
+    justify-content: center; /* Los mantiene al centro en móvil */
+    gap: 8px; /* Espacio exacto entre la imagen y el texto */
+    width: 100%;
     }
     .oficina p{
-      margin-top: 0;
-      font-size: 13px; /* Un poco más pequeña para 320px */
-      text-align: center;
+      margin: 0; /* Quita márgenes que puedan empujar el texto abajo */
+    font-size: 13px; /* Tamaño ideal para que quepa en 320px */
+    white-space: nowrap; /* Evita que el texto salte de línea si el espacio es justo */
     }
     .oficina img{
-      padding-right: 0.2em;
-      padding-bottom: 0.2em;
+      width: 20px; /* Tamaño controlado del icono */
+    height: auto;
+    padding: 0; /* Limpiamos paddings previos */
+    margin: 0;
     }
     .redes:hover img,.redes1:hover img, .piepag:hover, .piepag1:hover{
       transform: scale(120%);
@@ -472,6 +489,7 @@
       max-width: 280px ;
       font-size: 0.9em;
       padding: 1em;
+      padding-left: 1.5em;
       align-items: center;
       border-radius: 2em;
       background-color:var(--colorBlanco);
@@ -499,7 +517,7 @@
         align-items: center;
         width: 100%;
         overflow: hidden;
-        padding: 2em 0;
+        padding-bottom: 2em;
       }
       #clientes h3{
       padding-top: 2em;
@@ -536,10 +554,11 @@
       }
 .carousel{
     margin-top: 2em;
-    width: 100%; 
+    width: 60%; 
     overflow: hidden; /* Importante: oculta lo que desborda */
     display: flex;
     margin-top: 3em;
+    margin-bottom: 1em;
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
       } 
@@ -566,6 +585,16 @@
     to { transform: translateX(-100%); }
 }
 @media all and (min-width:768px){ 
+  .carousel{
+    width: 40%;
+   } 
+  #telefono p{
+      padding-bottom: 1em;
+      text-decoration: none;
+    }
+  .oficina{ 
+    width: 0;
+  } 
   .boton{
       display: inline-flex;
       width: 17em;
@@ -593,6 +622,8 @@
       background-color: var(--colorAzul);
       height: 3em;
       padding-top: 1em;
+      padding-left: 8em;
+      padding-right: 4em;
     }
     .oficina{
       display: flex;
@@ -603,7 +634,7 @@
       padding-bottom: 0.8em;
     }
   #clientes img {
-      scale: 50%;
+      scale: 120%;
       }
   #informacion{
     display: flex;
