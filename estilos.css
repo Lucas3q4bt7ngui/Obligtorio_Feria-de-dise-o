@@ -12,7 +12,17 @@
       box-sizing: border-box;
       font-family: "Roboto", sans-serif;
     }
+.link-tel {
+    color: inherit; /* Hereda el color del texto padre (blanco o azul según el caso) */
+    text-decoration: none; /* Quita el subrayado */
+    pointer-events: auto; /* Mantiene la capacidad de hacer clic */
+}
 
+/* Opcional: Para asegurar que en móvil no cambie de color al ser visitado */
+.link-tel:visited, .link-tel:hover, .link-tel:active {
+    color: inherit;
+    text-decoration: none;
+}
     #ham img{
       scale:40%;
     }
