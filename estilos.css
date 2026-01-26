@@ -29,11 +29,58 @@
       background-color: var(--colorBlanco);
       align-items: center;
       height: 8em;
-  
     }   
     header, footer, #telefono {
   padding-left: 1em;
   padding-right: 1em;
+}
+header nav {
+    /* Estado inicial oculto para la animación */
+    display: none; 
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease; /* Duración de la animación */
+    
+    flex-direction: column;
+    position: absolute;
+    top: 8em; 
+    left: 0;
+    width: 100%;
+    background-color: var(--colorBlanco);
+    padding: 2em;
+    z-index: 1000;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+header nav.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ajustes de los enlaces en el menú móvil */
+.cabeza {
+    text-decoration: none;
+    padding: 1.2em;
+    color: var(--colorAzul); /* Tu azul profesional */
+    font-size: 1.1em;
+    font-weight: 800; /* Peso visual fuerte como en PC */
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    transition: 0.3s;
+}
+.cabeza:hover {
+    color: var(--colorNaranja);
+}
+
+/* El botón hamburguesa se muestra en móvil */
+#ham {
+    display: block;
+    cursor: pointer;
+}
+#ham img {
+    width: 40px; 
+    height: auto;
+    scale: 1; /* Eliminamos el 20% que tenías antes */
 }
    footer {
       background-color: var(--colorAzul); 
@@ -156,7 +203,7 @@
       justify-content: center;
       margin: 0 auto;
       }
-      .imagen{
+      #informacion1 .imagen{
        justify-content: center;
        scale: 70%;
       }   
@@ -585,6 +632,26 @@
     to { transform: translateX(-100%); }
 }
 @media all and (min-width:768px){ 
+header nav {
+        display: flex;
+        flex-direction: row;
+        position: static; /* Vuelve a su lugar original */
+        width: auto;
+        padding: 0;
+        box-shadow: none;
+        opacity: 1;
+        transform: translateY(0);
+        background-color: transparent;
+    }
+    .cabeza {
+        border-bottom: none;
+        padding: 1em;
+        margin-left: 1em;
+        width: auto;
+    }
+  .footer-section {
+      padding-left: 8em;
+    }
   .carousel{
     width: 40%;
    } 
@@ -636,9 +703,7 @@
   #clientes img {
       scale: 120%;
       }
-  #informacion{
-    display: flex;
-  }
+
   h2{
   text-align: center;
 }
@@ -767,6 +832,39 @@
       }
 }
 @media all and (min-width:1200px){
+  #informacion{
+    display: flex;
+    margin-left: 24em;
+    text-align: left;
+  }
+  #informacion h3{
+    text-align: left;
+  }
+  .mapa{
+    padding-top: 0;
+    justify-content: left;
+  }
+ p {
+      margin-top: 0em;
+      font-size: 1.3em;
+      }
+    span3{
+      font-weight: 900;
+      font-size: 200%;
+      color: var(--colorNaranja);
+    }
+  #informacion1 article, #informacion1 p {
+        margin-right: 3em;
+        text-align: left;
+      } 
+   #informacion1 .imagen{
+        display: inline-block;
+       justify-content: center;
+       scale: 100%;
+      }   
+  .footer-section {
+      padding-left: 12em;
+    }
     /* pie de página */
     header {
     padding-right: 6em;
@@ -774,8 +872,8 @@
   }
   h2{
     text-align: left;
+    font-size: 200%;
   } 
-
     .imagen{
        scale: 102%;
       } 
