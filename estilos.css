@@ -82,6 +82,7 @@ header nav.active {
 #ham {
     display: block;
     cursor: pointer;
+    padding-right: 2em;
 }
 #ham img {
     width: 40px; 
@@ -290,12 +291,7 @@ header nav.active {
         gap: 2em;
         justify-content: center;
       } 
-      #informacion1 {
-        margin-left:auto;
-        margin-right: auto; 
-        margin-bottom: 10em;
-        margin-top: 10em;
-      } 
+   
       #informacion1 article, #informacion1 p {
         text-align: left;
         padding-right: 0;
@@ -430,7 +426,7 @@ header nav.active {
       }
     .logo{
       width: 9em;
-      margin: 0.5em;
+      margin: 1em;
       border-radius: 0;
       } 
       /* se utiliza en los primeros section */
@@ -438,6 +434,9 @@ header nav.active {
       margin: 0 auto;
       width: 90%;
       margin-bottom: 3em;  
+      }
+    #informacion1{
+      margin-top: 8em; 
       }
 .slide {
     position: relative; /* Base para el fondo posicionado */
