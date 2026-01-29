@@ -12,6 +12,49 @@
       box-sizing: border-box;
       font-family: "Roboto", sans-serif;
     }
+    #ham{
+      display: block; /* Asegura que el enlace sea un bloque */
+  padding: 10px;  /* Área de clic más cómoda */
+  z-index: 1001;  /* Siempre por encima del menú */
+  margin: 2em;
+    }
+    /* Contenedor del icono */
+.nav-icon {
+  width: 30px;      /* Ancho total de las líneas */
+  height: 22px;     /* Alto total del conjunto */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye las líneas equitativamente */
+  cursor: pointer;
+}
+
+/* Estilo individual de cada línea */
+.nav-icon span {
+  display: block;
+  width: 100%;      /* Todas ocupan el 100% de los 30px del padre */
+  height: 4px;      /* Grosor de la línea */
+  background-color: var(--colorAzul);
+  border-radius: 4px;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Transición suave */
+  transform-origin: center; /* Punto de rotación en el centro */
+}
+
+/* --- Animación a X --- */
+
+/* Línea superior: baja al centro y rota 45 grados */
+#ham.open .nav-icon span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+/* Línea media: simplemente desaparece */
+#ham.open .nav-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+/* Línea inferior: sube al centro y rota -45 grados */
+#ham.open .nav-icon span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
 .link-tel {
     color: inherit; /* Hereda el color del texto padre (blanco o azul según el caso) */
     text-decoration: none; /* Quita el subrayado */
@@ -23,9 +66,7 @@
     color: inherit;
     text-decoration: none;
 }
-    #ham img{
-      scale:40%;
-    }
+
     nav{
       display: none;
     }
@@ -79,16 +120,7 @@ header nav.active {
 }
 
 /* El botón hamburguesa se muestra en móvil */
-#ham {
-    display: block;
-    cursor: pointer;
-    padding-right: 2em;
-}
-#ham img {
-    width: 40px; 
-    height: auto;
-    scale: 1; /* Eliminamos el 20% que tenías antes */
-}
+
    footer {
       background-color: var(--colorAzul); 
       color: white;
@@ -304,6 +336,7 @@ header nav.active {
         padding: 2em;
         gap: 2em;
         justify-content: center;
+        padding-bottom: 3em;
       } 
       #informacion2 h3, #informacion2 p {
         color: var(--colorBlanco);
@@ -645,6 +678,10 @@ header nav.active {
     to { transform: translateX(-100%); }
 }
 @media all and (min-width:768px){ 
+      .footer-section {
+      width: 15%;
+      padding-left: 1em;
+    }
 header nav {
         display: flex;
         flex-direction: row;
@@ -661,9 +698,6 @@ header nav {
         padding: 1em;
         margin-left: 1em;
         width: auto;
-    }
-  .footer-section {
-      padding-left: 8em;
     }
   .carousel{
     width: 40%;
@@ -867,9 +901,6 @@ header nav {
        justify-content: center;
        scale: 100%;
       }   
-  .footer-section {
-      padding-left: 12em;
-    }
     /* pie de página */
   h2{
     text-align: left;
