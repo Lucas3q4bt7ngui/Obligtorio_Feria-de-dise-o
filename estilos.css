@@ -82,7 +82,7 @@
       justify-content: space-between;
       background-color: var(--colorBlanco);
       align-items: center;
-      height: 8em;
+      height: 6em;
     }   
 
 header nav {
@@ -980,3 +980,4 @@ header nav {
        max-width: none;  
 }
   } 
+
