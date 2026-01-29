@@ -12,6 +12,9 @@
       box-sizing: border-box;
       font-family: "Roboto", sans-serif;
     }
+    html{
+      scroll-behavior: smooth;
+    }
     #ham{
       display: block; /* Asegura que el enlace sea un bloque */
   padding: 10px;  /* Área de clic más cómoda */
@@ -320,7 +323,6 @@ header nav.active {
         display: grid;
         margin-bottom: 2em;
         margin-top: 2em;
-        gap: 2em;
         justify-content: center;
       } 
    
@@ -682,15 +684,19 @@ header nav.active {
       padding-left: 1em;
     }
 header nav {
-        display: flex;
+        /* ESTO CORRIGE EL ERROR */
+        display: flex !important;       /* Fuerza a que aparezca siempre */
+        opacity: 1 !important;         /* Anula cualquier desvanecimiento */
+        visibility: visible !important; /* Anula el ocultamiento */
+        pointer-events: auto !important;/* Permite que los botones reciban clics */
+        
+        /* El resto de tu configuración original */
+        position: static; 
         flex-direction: row;
-        position: static; /* Vuelve a su lugar original */
         width: auto;
         padding: 0;
         box-shadow: none;
-        opacity: 1;
-        transform: translateY(0);
-        background-color: transparent;
+        transform: none;
     }
     .cabeza {
         border-bottom: none;
@@ -741,7 +747,6 @@ header nav {
   text-align: center;
 }
 .mapa{
-      padding-top: 4em;
       scale: 100%;
     }
   #informacion1 {
@@ -872,7 +877,13 @@ header nav {
 @media all and (min-width:1200px){
   #informacion{
     display: flex;
-    margin-left: 24em;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1160px;
+    width: 40%;
+    gap: 2em;
     text-align: left;
   }
   #informacion h3{
