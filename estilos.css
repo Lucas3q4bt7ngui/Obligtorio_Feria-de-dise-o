@@ -82,7 +82,7 @@
       justify-content: space-between;
       background-color: var(--colorBlanco);
       align-items: center;
-      height: 6em;
+      height: 8em;
     }   
 
 header nav {
@@ -476,7 +476,7 @@ header nav.active {
 .slide {
     position: relative; /* Base para el fondo posicionado */
     overflow: hidden;    /* Corta cualquier exceso del zoom para no crear scroll */
-    min-height: 500px;   /* Ajusta según necesites */
+    min-height: 600px;   /* Ajusta según necesites */
     display: flex;
     align-items: center;
     background-color: #000; /* Fondo de seguridad negro */
@@ -728,7 +728,7 @@ header nav {
       background-color: var(--colorAzul);
       height: 3em;
       padding-top: 1em;
-      padding-left: 8em;
+      padding-left: 4em;
       padding-right: 4em;
     }
     .oficina{
@@ -771,7 +771,7 @@ header nav {
       justify-content: space-between;
       background-color: var(--colorBlanco);
       padding-right: 6em;
-      padding-left: 6em;
+      padding-left: 2em;
       align-items: center;
     }   
     .article{ 
@@ -980,4 +980,3 @@ header nav {
        max-width: none;  
 }
   } 
-
