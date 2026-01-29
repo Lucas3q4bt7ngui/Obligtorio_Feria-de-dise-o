@@ -22,7 +22,11 @@
     <header class="cabezal">
         <img class="logo" src="img/imagotipo.png" alt="logo"/>
         <a href="#" id="ham">
-            <img src="img/ham.png" alt="menu">
+            <div class="nav-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
         </a>
         <nav>
           <a class="cabeza" href="#">INICIO</a>
@@ -191,37 +195,43 @@
   </footer>
 </body>
 <script>
-    const btnHam = document.getElementById('ham');
-    const menuNav = document.querySelector('header nav');
+   const btnHam = document.getElementById('ham');
+const menuNav = document.querySelector('header nav');
 
-    btnHam.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Si el menú está oculto, lo mostramos primero para que la animación funcione
-        if (menuNav.style.display === "none" || menuNav.style.display === "") {
-            menuNav.style.display = "flex";
-            // Un pequeño delay para que el navegador procese el cambio de display y ejecute la transición
-            setTimeout(() => {
-                menuNav.classList.add('active');
-            }, 10);
-        } else {
-            menuNav.classList.remove('active');
-            // Esperamos a que termine la animación para ocultar el display
-            setTimeout(() => {
-                menuNav.style.display = "none";
-            }, 400);
-        }
-    });
+btnHam.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Toggle de la clase "open" para la animación de las rayitas
+    this.classList.toggle('open');
 
-    // Cerrar el menú al tocar un enlace
-    const navLinks = document.querySelectorAll('.cabeza');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menuNav.classList.remove('active');
-            setTimeout(() => {
-                menuNav.style.display = "none";
-            }, 400);
-        });
+    // Lógica que ya tenías para el menú
+    if (menuNav.style.display === "none" || menuNav.style.display === "") {
+        menuNav.style.display = "flex";
+        setTimeout(() => {
+            menuNav.classList.add('active');
+        }, 10);
+    } else {
+        menuNav.classList.remove('active');
+        setTimeout(() => {
+            menuNav.style.display = "none";
+        }, 400);
+    }
+});
+
+// IMPORTANTE: Al hacer clic en un link, también debemos quitar la "X"
+const navLinks = document.querySelectorAll('.cabeza');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        btnHam.classList.remove('open'); // Vuelve a ser hamburguesa
+        menuNav.classList.remove('active');
+        setTimeout(() => {
+            menuNav.style.display = "none";
+        }, 400);
     });
+});
 </script>
 </html>
+
+
+
+
