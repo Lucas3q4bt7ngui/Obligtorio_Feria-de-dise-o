@@ -30,16 +30,16 @@
         </a>
         <nav>
           <a class="cabeza" href="#">INICIO</a>
-          <a class="cabeza" href="#">SERVICIOS</a>
-          <a class="cabeza" href="#">QUIENES SOMOS</a>
-          <a class="cabeza" href="#">CONTACTO</a>
+          <a class="cabeza" href="#actividades">SERVICIOS</a>
+          <a class="cabeza" href="#informacion1">QUIENES SOMOS</a>
+          <a class="cabeza" href="#informacion2">CONTACTO</a>
         </nav>
     </header>
     <main>
         <section class="slide">
     <div class="contenedor1">
         <h1>COMPROMISO PROFESIONAL<br>
-            <span>CON TU HOGAR O EMPRESA</span><br> 
+            <span>CON TU HOGAR O EMPRESA</span>
             <span class="subtitulo">TODO EN SERVICIOS SANITARIOS</span>
         </h1>
         <a href="https://wa.link/6sq8gr" class="boton">
@@ -219,19 +219,33 @@ btnHam.addEventListener('click', function(e) {
 });
 
 // IMPORTANTE: Al hacer clic en un link, también debemos quitar la "X"
-const navLinks = document.querySelectorAll('.cabeza');
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        btnHam.classList.remove('open'); // Vuelve a ser hamburguesa
-        menuNav.classList.remove('active');
-        setTimeout(() => {
-            menuNav.style.display = "none";
-        }, 400);
+    link.addEventListener('click', function(e) {
+        // Solo aplicar si el enlace empieza con #
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+            e.preventDefault(); // Evita el salto brusco
+            
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // Cerramos el menú primero (en móvil)
+                btnHam.classList.remove('open');
+                menuNav.classList.remove('active');
+                
+                // Si estamos en móvil, esperamos un poquito a que cierre el menú antes de bajar
+                const delay = window.innerWidth < 768 ? 400 : 0;
+
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // -80 para que el header sticky no tape el título
+                        behavior: 'smooth'
+                    });
+                }, delay);
+            }
+        }
     });
 });
 </script>
 </html>
-
-
-
-
