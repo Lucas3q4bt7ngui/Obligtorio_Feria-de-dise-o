@@ -251,7 +251,7 @@ header nav.active {
       }
       #informacion1 .imagen{
        justify-content: center;
-       scale: 70%;
+       scale:90%;
       }   
     fieldset {
       display: flex;
@@ -318,8 +318,8 @@ header nav.active {
         }
       #informacion {
         display: grid;
-        margin-bottom: 5em;
-        margin-top: 5em;
+        margin-bottom: 2em;
+        margin-top: 2em;
         gap: 2em;
         justify-content: center;
       } 
@@ -459,7 +459,7 @@ header nav.active {
       }
     .logo{
       width: 9em;
-      margin: 1em;
+      margin: 1.8em;
       border-radius: 0;
       } 
       /* se utiliza en los primeros section */
@@ -469,7 +469,7 @@ header nav.active {
       margin-bottom: 3em;  
       }
     #informacion1{
-      margin-top: 8em; 
+      margin-top: 4em; 
       }
 .slide {
     position: relative; /* Base para el fondo posicionado */
@@ -629,7 +629,6 @@ header nav.active {
 }
       #fondo{
       background: var(--colorAzul);
-      align-items: center;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -638,7 +637,7 @@ header nav.active {
       background: var(--colorAzul);
       }
       #fondo h3{
-        padding-top: 2em;
+        padding-top: 1em;
         text-align: center;
         color: var(--colorBlanco);
       }
