@@ -82,7 +82,7 @@
       justify-content: space-between;
       background-color: var(--colorBlanco);
       align-items: center;
-      height: 8em;
+      height: 6em;
     }   
 
 header nav {
@@ -253,9 +253,19 @@ header nav.active {
       margin: 0 auto;
       }
       #informacion1 .imagen{
-       justify-content: center;
-       scale:90%;
+       display: flex;
+      flex-wrap: wrap;      /* Permite que las fotos se pongan una debajo de otra en móvil */
+      justify-content: center;
+      width: 100%;
+      scale: 1;             /* Eliminamos el scale: 70% que las achicaba */
+      padding: 0 10px;      /* Un pequeño margen para que no toquen los bordes del cel */
       }   
+      #informacion1 .imagen img {
+    width: 100%;          /* En móvil ocupan todo el ancho del contenedor */
+    max-width: 500px;     /* No queremos que crezcan infinitamente en tablets */
+    height: auto;         /* Mantiene la proporción original */
+    object-fit: cover;    /* Asegura que la imagen llene el espacio sin estirarse */
+}
     fieldset {
       display: flex;
       flex-direction: column;
@@ -330,6 +340,7 @@ header nav.active {
         text-align: left;
         padding-right: 0;
         display: grid;
+        margin-bottom: 1em;
       } 
 
       #informacion2 {
@@ -679,6 +690,14 @@ header nav.active {
     to { transform: translateX(-100%); }
 }
 @media all and (min-width:768px){ 
+  #informacion1 .imagen {
+        flex-wrap: nowrap; /* Las pone en la misma fila */
+        justify-content: space-between;
+    }
+
+    #informacion1 .imagen img {
+        width: 48%;       /* Casi la mitad cada una para que entren juntas */
+    }
       .footer-section {
       width: 15%;
       padding-left: 1em;
@@ -744,7 +763,7 @@ header nav {
       }
 
   h2{
-  text-align: center;
+  text-align: left;
 }
 .mapa{
       scale: 100%;
@@ -907,10 +926,21 @@ header nav {
         text-align: left;
       } 
    #informacion1 .imagen{
-        display: inline-block;
-       justify-content: center;
-       scale: 100%;
+        display: flex !important;
+        flex-direction: column; /* Una debajo de la otra */
+        align-items: center;    /* Las centra horizontalmente */
+        gap: 0;
+        line-height: 0;
       }   
+      #informacion1 .imagen img {
+       /* Ocupan el ancho que definas, pero el alto es automático */
+        width: 160%;            
+        max-width: 600px;       /* Ajusta este valor al tamaño original de tus fotos */
+        height: auto !important; /* Mantiene la proporción original sin recortar */
+        display: block;
+        margin: 0 auto;
+        padding: 0; 
+      }
     /* pie de página */
   h2{
     text-align: left;
