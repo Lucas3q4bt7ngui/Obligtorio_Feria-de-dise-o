@@ -212,74 +212,29 @@
   </footer>
 </body>
 <script>
-   const btnHam = document.getElementById('ham');
-const menuNav = document.querySelector('header nav');
-
-btnHam.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // Toggle de la clase "open" para la animación de las rayitas
-    this.classList.toggle('open');
-
-    // Lógica que ya tenías para el menú
-    if (menuNav.style.display === "none" || menuNav.style.display === "") {
-        menuNav.style.display = "flex";
-        setTimeout(() => {
-            menuNav.classList.add('active');
-        }, 10);
-    } else {
-        menuNav.classList.remove('active');
-        setTimeout(() => {
-            menuNav.style.display = "none";
-        }, 400);
-    }
-});
 
 // IMPORTANTE: Al hacer clic en un link, también debemos quitar la "X"
-navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        // Solo aplicar si el enlace empieza con #
-        const href = this.getAttribute('href');
-        if (href.startsWith('#')) {
-            e.preventDefault(); // Evita el salto brusco
-            
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
+document.addEventListener('DOMContentLoaded', () => {
+    const ham = document.getElementById('ham');
+    const nav = document.querySelector('header nav');
+    const links = document.querySelectorAll('header nav a');
 
-            if (targetElement) {
-                // Cerramos el menú primero (en móvil)
-                btnHam.classList.remove('open');
-                menuNav.classList.remove('active');
-                
-                // Si estamos en móvil, esperamos un poquito a que cierre el menú antes de bajar
-                const delay = window.innerWidth < 768 ? 400 : 0;
-
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // -80 para que el header sticky no tape el título
-                        behavior: 'smooth'
-                    });
-                }, delay);
-            }
-        }
+    // 1. ABRIR / CERRAR (Sin saltar al inicio)
+    ham.addEventListener('click', (e) => {
+        e.preventDefault();  // <--- ESTO evita que la página salte al inicio
+        e.stopPropagation(); 
+        
+        ham.classList.toggle('open');
+        nav.classList.toggle('active');
     });
-});
-// Seleccionamos todos los enlaces que están dentro del nav del header
-const navLinks = document.querySelectorAll('header nav a');
-const navMenu = document.querySelector('header nav');
-const menuBtn = document.querySelector('#ham');
 
-// Recorremos cada enlace y le asignamos la función de cierre
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        // 1. Quitamos la clase 'active' para que el menú suba/desaparezca
-        navMenu.classList.remove('active');
-        
-        // 2. Quitamos la clase 'open' al botón para que la "X" vuelva a ser "hamburguesa"
-        menuBtn.classList.remove('open');
-        
-        // 3. Opcional: Si usas overflow:hidden en el body para bloquear el scroll al abrir, quítalo aquí
-        // document.body.style.overflow = 'auto';
+    // 2. CERRAR AL TOCAR UN ENLACE
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            ham.classList.remove('open');
+            nav.classList.remove('active');
+            // Aquí NO ponemos preventDefault porque sí queremos que navegue a la sección
+        });
     });
 });
 </script>
