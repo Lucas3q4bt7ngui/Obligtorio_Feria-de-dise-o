@@ -264,5 +264,23 @@ navLinks.forEach(link => {
         }
     });
 });
+// Seleccionamos todos los enlaces que están dentro del nav del header
+const navLinks = document.querySelectorAll('header nav a');
+const navMenu = document.querySelector('header nav');
+const menuBtn = document.querySelector('#ham');
+
+// Recorremos cada enlace y le asignamos la función de cierre
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        // 1. Quitamos la clase 'active' para que el menú suba/desaparezca
+        navMenu.classList.remove('active');
+        
+        // 2. Quitamos la clase 'open' al botón para que la "X" vuelva a ser "hamburguesa"
+        menuBtn.classList.remove('open');
+        
+        // 3. Opcional: Si usas overflow:hidden en el body para bloquear el scroll al abrir, quítalo aquí
+        // document.body.style.overflow = 'auto';
+    });
+});
 </script>
 </html>
