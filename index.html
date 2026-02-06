@@ -212,30 +212,36 @@
   </footer>
 </body>
 <script>
-
-// IMPORTANTE: Al hacer clic en un link, también debemos quitar la "X"
 document.addEventListener('DOMContentLoaded', () => {
     const ham = document.getElementById('ham');
     const nav = document.querySelector('header nav');
     const links = document.querySelectorAll('header nav a');
 
-    // 1. ABRIR / CERRAR (Sin saltar al inicio)
-    ham.addEventListener('click', (e) => {
-        e.preventDefault();  // <--- ESTO evita que la página salte al inicio
-        e.stopPropagation(); 
-        
-        ham.classList.toggle('open');
-        nav.classList.toggle('active');
-    });
-
-    // 2. CERRAR AL TOCAR UN ENLACE
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            ham.classList.remove('open');
-            nav.classList.remove('active');
-            // Aquí NO ponemos preventDefault porque sí queremos que navegue a la sección
+    if (ham && nav) {
+        // ABRIR Y CERRAR
+        ham.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            e.stopPropagation();
+            ham.classList.toggle('open');
+            nav.classList.toggle('active');
         });
-    });
+
+        // CERRAR AL HACER CLIC EN UN LINK
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                ham.classList.remove('open');
+                nav.classList.remove('active');
+            });
+        });
+
+        // CERRAR AL HACER CLIC FUERA
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !ham.contains(e.target)) {
+                ham.classList.remove('open');
+                nav.classList.remove('active');
+            }
+        });
+    }
 });
 </script>
 </html>
