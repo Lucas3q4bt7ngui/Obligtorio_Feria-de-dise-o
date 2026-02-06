@@ -15,9 +15,14 @@
     html{
       scroll-behavior: smooth;
     }
-    section[id], div[id] {
-    /* Ajusta los 100px según la altura real de tu header (en tu caso aprox 6em) */
+    .label{
+      font-weight: 800;
+    }
+    #informacion1, #actividades{
     scroll-margin-top: 150px; 
+}
+    #informacion2, #fondo{
+    scroll-margin-top: 100px; 
 }
     #ham{
       display: block; /* Asegura que el enlace sea un bloque */
@@ -143,6 +148,10 @@ header nav.active {
 }
 .footer-section {
     width: 100%;
+    margin-bottom: 2em;
+}
+.footer-section ul li {
+    color: var(--colorBlanco);
 }
 .footer-menu h4 {
     color: var(--colorBlanco);
@@ -728,37 +737,52 @@ header nav.active {
   from { transform: translateX(0); }
     to { transform: translateX(-100%); }
 }
+     .logols {
+      width: 8em;
+      }
+
 @media all and (min-width:768px){ 
+  .footer-section ul li {
+    text-align: left;
+}
   .footer-menu ul {
     text-align: left;
 }
   .footer-menu h4 {
-    text-align: left;
+    margin-right: 3em;
 }
    .footer-section p {
       text-align: left;
     }
   footer {
-        flex-direction: row;
-        flex-wrap: nowrap;
+        display: flex;
+        justify-content: center;
+        padding: 5em 2em;
+    }
+    .footer-container {
+        display: grid;
+        /* Creamos 3 columnas exactamente iguales (33.3% cada una) */
+        grid-template-columns: repeat(3, 1fr); 
+        width: 100%;
+        max-width: 1100px; /* Evita que las columnas se alejen demasiado */
+        gap: 0; /* Quitamos el gap para controlar el centro nosotros */
         align-items: flex-start;
-        text-align: left;
-        padding: 4em 6em;
     }
     .footer-menu {
         text-align: center;
     }
   #informacion1 .imagen {
         flex-wrap: nowrap; /* Las pone en la misma fila */
-        justify-content: space-between;
     }
 
     #informacion1 .imagen img {
         width: 48%;       /* Casi la mitad cada una para que entren juntas */
     }
       .footer-section {
-      width: auto;
-      flex: 1;
+      display: flex;
+        flex-direction: column;
+        align-items: center; /* ESTO centra el contenido internamente */
+        text-align: center;   /* ESTO centra el texto internamente */
     }
     .footer-logo {
         padding-bottom: 0; /* Quitamos el padding excesivo de móvil */
@@ -766,12 +790,14 @@ header nav.active {
         flex-direction: column;
         align-items: center;
     }
-    .arriba { 
-      margin-bottom: 3em;
+    .footer-logo img {
+        width: 10em; /* Ajusta este tamaño para que no domine toda la fila */
+        margin-bottom: 1.5em;
     }
     .social-icons {
-        justify-content: flex-start; /* Redes sociales a la izquierda */
-        margin-top: 1em;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
     }
 
 header nav {
@@ -888,7 +914,7 @@ header nav {
       background-color: var(--colorBlanco);
       text-align: center;
      max-width: 100%;
-     height: 10em;
+     height: 4em;
 } 
     /* section grid */
     /* pie de página */
@@ -923,7 +949,7 @@ header nav {
     }
     .cabeza, .pie{
       text-decoration: none;
-      padding: 1em;
+      padding: 0.3em;
       border-radius: 2em;
       color: var(--colorAzul);
       font-size: 1em;
