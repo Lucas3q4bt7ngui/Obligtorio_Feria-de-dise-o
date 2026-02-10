@@ -18,10 +18,10 @@
     .label{
       font-weight: 800;
     }
-    #informacion1, #fondo, #actividades{
+    #informacion1, #fondo{
     scroll-margin-top: 150px; 
 }
-    #informacion2, #fondo{
+    #informacion2, #fondo, #actividades{
     scroll-margin-top: 100px; 
 }
     #ham{
@@ -39,7 +39,6 @@
   justify-content: space-between; /* Distribuye las líneas equitativamente */
   cursor: pointer;
 }
-
 /* Estilo individual de cada línea */
 .nav-icon span {
   display: block;
@@ -50,19 +49,15 @@
   transition: transform 0.3s ease, opacity 0.3s ease; /* Transición suave */
   transform-origin: center; /* Punto de rotación en el centro */
 }
-
 /* --- Animación a X --- */
-
 /* Línea superior: baja al centro y rota 45 grados */
 #ham.open .nav-icon span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
-
 /* Línea media: simplemente desaparece */
 #ham.open .nav-icon span:nth-child(2) {
   opacity: 0;
 }
-
 /* Línea inferior: sube al centro y rota -45 grados */
 #ham.open .nav-icon span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
@@ -72,13 +67,11 @@
     text-decoration: none; /* Quita el subrayado */
     pointer-events: auto; /* Mantiene la capacidad de hacer clic */
 }
-
 /* Opcional: Para asegurar que en móvil no cambie de color al ser visitado */
 .link-tel:visited, .link-tel:hover, .link-tel:active {
     color: inherit;
     text-decoration: none;
 }
-
     nav{
       display: none;
     }
@@ -93,13 +86,9 @@
       align-items: center;
       height: 6em;
     }   
-
 header nav {
-    /* Estado inicial oculto para la animación */
-    display: none; 
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.4s ease; /* Duración de la animación */
+    /* ESTADO INICIAL (OCULTO) */
+    display: flex; /* Cambiamos de none a flex */
     flex-direction: column;
     position: absolute;
     top: 6em; 
@@ -109,13 +98,17 @@ header nav {
     padding: 2em;
     z-index: 1000;
     box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    /* LA MAGIA DE LA ANIMACIÓN */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px); /* Empieza un poco más arriba */
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animación fluida profesional */
 }
 header nav.active {
-    display: flex;
     opacity: 1;
-    transform: translateY(0);
+    visibility: visible;
+    transform: translateY(0); /* Baja a su posición original */
 }
-
 /* Ajustes de los enlaces en el menú móvil */
 .cabeza {
     text-decoration: none;
@@ -130,9 +123,7 @@ header nav.active {
 .cabeza:hover {
     color: var(--colorNaranja);
 }
-
 /* El botón hamburguesa se muestra en móvil */
-
    footer {
       background-color: var(--colorAzul); 
       color: white;
@@ -160,24 +151,20 @@ header nav.active {
     font-weight: 800;
     text-align: center;
 }
-
 .footer-menu ul {
     list-style: none;
     padding: 0;
     text-align: center;
 }
-
 .footer-menu ul li {
     margin-bottom: 0.8em;
 }
-
 .footer-menu ul li a {
     color: var(--colorBlanco);
     text-decoration: none;
     font-size: 0.95em;
     transition: color 0.3s ease;
 }
-
 .footer-menu ul li a:hover {
     color: var(--colorNaranja); /* Efecto hover igual que el menú principal */
 }
@@ -189,7 +176,6 @@ header nav.active {
   height: 100%;
   display: block;
 }
-
     .footer-section p {
       padding-right: 0;
       margin-top: 0.5em;
@@ -219,7 +205,6 @@ header nav.active {
       height: 35px;
       cursor: pointer;
     }
-
     h4 {
       margin-bottom: 10px;
       font-size: 14px;
@@ -236,7 +221,6 @@ header nav.active {
   .footer-menu a:hover {
       text-decoration: none;
     }
-
     /* pie de página */ 
       /* aspectos generales */
     span{
@@ -262,12 +246,10 @@ header nav.active {
     h2 {
       font-size: 1.5em;
       color: var(--colorAzul);
-      
       }  
     h3 {
       font-size: 1.8em;
       color: var(--colorAzul);
-      
       }
     p {
       font-size: 1em;
@@ -292,7 +274,6 @@ header nav.active {
       padding-bottom: 1em;
       padding-left: 0.5em;
     }
-    
       /* aspectos para el section formulario */
     form {
       display: inline-grid;
@@ -383,14 +364,12 @@ header nav.active {
         margin-top: 2em;
         justify-content: center;
       } 
-   
       #informacion1 article, #informacion1 p {
         text-align: left;
         padding-right: 0;
         display: grid;
         margin-bottom: 1em;
       } 
-
       #informacion2 {
         display: grid;
         background-color: var(--colorAzul);
@@ -458,7 +437,6 @@ header nav.active {
     height: auto;
     min-height: 40px; /* Un poco de altura fija para que respire */
     padding-top: 1em;
-
     }
     #telefono p{
       color: var(--colorBlanco);
@@ -540,7 +518,6 @@ header nav.active {
     align-items: center;
     background-color: #000; /* Fondo de seguridad negro */
 }
-
 /* Esta capa maneja la imagen y la animación de forma independiente */
 .slide::before {
     content: "";
@@ -550,7 +527,6 @@ header nav.active {
     width: 100%;
     height: 100%;
     z-index: 1;
-    
     /* Configuración de tu imagen */
     background-image: url(img/fachada.png), linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0) 100%);
     background-repeat: no-repeat;
@@ -562,7 +538,6 @@ header nav.active {
     /* Animación: empieza en tamaño real (1) y sube a 1.1 (10% más) */
     animation: zoom 8s ease-in-out forwards;
 }
-
 /* Los contenidos deben estar por encima del pseudo-elemento (z-index) */
 .contenedor1 {
     position: relative;
@@ -572,7 +547,6 @@ header nav.active {
     padding: 6em 2em; /* Padding lateral para móviles */
     text-align: center;
 }
-
 @keyframes zoom {
     0% {
         transform: scale(1); /* Empieza llenando todo el contenedor */
@@ -581,14 +555,12 @@ header nav.active {
         transform: scale(1.1); /* Se agranda suavemente sin mostrar blanco */
     }
 }
-
 /* Estilos adicionales para que el texto se vea bien */
 .subtitulo {
     display: block;
     font-size: 0.8em; /* Ajusta según tu diseño */
     margin-top: 10px;
 }
-
     .introduccion {
      display: none;
       }
@@ -657,13 +629,11 @@ header nav.active {
       background-color: var(--colorAzul);
       color: var(--colorBlanco);
       }
-
       #inf{
       display: flex;
       max-width: 1160px;
       margin-right: auto;
       margin-left: auto;
- 
       }
       #clientes {
         display: flex;
@@ -731,7 +701,6 @@ header nav.active {
   .carousel::-webkit-scrollbar{
       display: none;
       }  
-
       @keyframes spin {
   /* Foto 1: Posición inicial */
   from { transform: translateX(0); }
@@ -740,8 +709,28 @@ header nav.active {
      .logols {
       width: 8em;
       }
+@media all and (min-width:768px){
+  .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        margin-right: 20px;
+        background-color: #2c3e50;
+        position: fixed;
+        
+        /* Cambia el top por el alto de tu barra si es necesario */
+        top: 60px; 
+        width: 100%;
+        height: calc(100% - 60px);
 
-@media all and (min-width:768px){ 
+        /* --- AQUÍ ESTÁ EL ARREGLO --- */
+        display: flex; /* Siempre flex, no none */
+        left: 100%;    /* Lo mandamos totalmente a la derecha, fuera de vista */
+        transition: left 0.5s ease; /* La animación que ahora sí funcionará */
+    }
+    .nav-menu_visible {
+        /* Cuando se active, vuelve a la posición 0 (visible) */
+        left: 0 !important; 
+    } 
   .footer-section ul li {
     text-align: left;
 }
@@ -799,22 +788,19 @@ header nav.active {
         width: 100%;
         margin-top: 10px;
     }
-
-header nav {
-        /* ESTO CORRIGE EL ERROR */
-        display: flex !important;       /* Fuerza a que aparezca siempre */
-        opacity: 1 !important;         /* Anula cualquier desvanecimiento */
-        visibility: visible !important; /* Anula el ocultamiento */
-        pointer-events: auto !important;/* Permite que los botones reciban clics */
-        
-        /* El resto de tu configuración original */
-        position: static; 
-        flex-direction: row;
-        width: auto;
-        padding: 0;
-        box-shadow: none;
-        transform: none;
-    }
+      header nav {
+            /* Reset de móvil para PC */
+            position: static; 
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+            flex-direction: row;
+            width: auto;
+            padding: 0;
+            box-shadow: none;
+            transition: none; /* Quitamos la animación en PC */
+        }
     .cabeza {
         border-bottom: none;
         padding: 1em;
@@ -859,7 +845,6 @@ header nav {
   #clientes img {
       scale: 120%;
       }
-
   h2{
   text-align: left;
 }
@@ -897,7 +882,6 @@ header nav {
     .article2{ 
       height: 20em;
     }  
-
   /* pie de página */
     nav{
        display:flex;
@@ -940,7 +924,6 @@ header nav {
     #actividades .article4 img{
       display: block;
     }
-   
     /* pie de página */
     .logo{
       width: 10em;
@@ -1097,7 +1080,6 @@ header nav {
        align-items: center;
        text-align: center;
        }
-
     #actividades .especial {
       flex-basis: 100%;
       border: none;
@@ -1105,7 +1087,6 @@ header nav {
       text-align: center;
       height: 1em;
 } 
-
     .contenedor{
        max-width: none;  
 }
