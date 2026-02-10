@@ -19,7 +19,7 @@
       font-weight: 800;
     }
     #informacion1, #fondo{
-    scroll-margin-top: 150px; 
+    scroll-margin-top: 50px; 
 }
     #informacion2, #fondo, #actividades{
     scroll-margin-top: 100px; 
@@ -1033,15 +1033,42 @@ header nav.active {
     .imagen{
        scale: 102%;
       } 
-          #informacion1 {
+   #informacion1 {
         display: flex;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1100px;
-      } 
-          #informacion1 img {
-        margin-top: -0.5em;
-      } 
+        justify-content: center; /* Centra el grupo entero horizontalmente */
+        align-items: center;     /* Alinea el texto y las fotos a la misma altura */
+        max-width: 1200px;
+        margin: 0 auto;          /* Centra la sección en la página */
+        padding-top: 3em ;
+        padding-left: 3em;
+        padding-bottom: 3em;
+        flex-wrap: nowrap;       /* Evita que se bajen las imágenes */
+    }
+
+    /* Forzamos al texto a ocupar un ancho fijo y no desparramarse */
+    #informacion1 h2, 
+    #informacion1 p {
+        max-width: 600px;
+        text-align: left;
+    }
+
+    /* Forzamos a las imágenes a comportarse como una columna al costado */
+    /* Como no tienes un div que las envuelva, usamos este truco de CSS */
+    #informacion1 img[alt="camioneta"],
+    #informacion1 img[alt="oficina"] {
+        display: block;
+        width: 350px;        /* Tamaño fijo para que se vean simétricas */
+        height: auto;
+    }
+
+    /* Alineamos las imágenes a la derecha del texto */
+    #informacion1 {
+        display: grid;
+        grid-template-columns: 1fr auto; /* Texto ocupa el resto, imágenes su ancho */
+        justify-content: center;
+        align-content: center;
+        justify-items: center; /* Aquí está la clave del centrado total */
+    }
       .imagen{
         display: block;
       }
