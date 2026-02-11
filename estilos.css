@@ -13,10 +13,10 @@
       font-family: "Roboto", sans-serif;
     }
     html{
-      scroll-behavior: smooth;
+    scroll-behavior: smooth; 
     }
     .label{
-      font-weight: 800;
+      font-weight: 700;
     }
     #informacion1, #fondo{
     scroll-margin-top: 50px; 
@@ -41,7 +41,6 @@
 }
 /* Estilo individual de cada línea */
 .nav-icon span {
-  display: block;
   width: 100%;      /* Todas ocupan el 100% de los 30px del padre */
   height: 4px;      /* Grosor de la línea */
   background-color: var(--colorAzul);
@@ -148,7 +147,7 @@ header nav.active {
     color: var(--colorBlanco);
     font-size: 1.2em;
     margin-bottom: 1em;
-    font-weight: 800;
+    font-weight: 700;
     text-align: center;
 }
 .footer-menu ul {
@@ -174,7 +173,6 @@ header nav.active {
   object-position: left center;
   width: auto; /* Permite que la imagen mantenga su ancho real */
   height: 100%;
-  display: block;
 }
     .footer-section p {
       padding-right: 0;
@@ -224,15 +222,11 @@ header nav.active {
     /* pie de página */ 
       /* aspectos generales */
     span{
-      font-weight: 600;
+      font-weight: 700;
       font-size: 80%;
     }
-    span1{
-      font-weight: 600;
-      font-size: 60%;
-    }
     span3{
-      font-weight: 900;
+      font-weight: 700;
       font-size: 150%;
       color: var(--colorNaranja);
     }
@@ -240,7 +234,7 @@ header nav.active {
       text-align: center;
       padding-bottom: 1em;
       font-size: 2em;
-      font-weight: 900;
+      font-weight: 700;
       color: var(--colorBlanco);
       }
     h2 {
@@ -463,8 +457,7 @@ header nav.active {
     gap: 0.2em; /* Espacio exacto entre la imagen y el texto */
     width: 100%;
     }
-    .oficina p{
-      margin: 0; /* Quita márgenes que puedan empujar el texto abajo */
+    .oficina p{ 
     font-size: 13px; /* Tamaño ideal para que quepa en 320px */
     white-space: nowrap; /* Evita que el texto salte de línea si el espacio es justo */
     }
@@ -472,7 +465,6 @@ header nav.active {
       width: 20px; /* Tamaño controlado del icono */
     height: auto;
     padding: 0; /* Limpiamos paddings previos */
-    margin: 0;
     }
     .redes:hover img,.redes1:hover img, .piepag:hover, .piepag1:hover{
       transform: scale(120%);
@@ -623,7 +615,7 @@ header nav.active {
       text-align: center;
       cursor: pointer;
       transition: 0.3s;
-      font-weight: 500;
+      font-weight: 400;
       }
     .boton:hover {
       background-color: var(--colorAzul);
@@ -821,7 +813,7 @@ header nav.active {
       text-align: center;
       padding-bottom: 1em;
       font-size: 3em;
-      font-weight: 900;
+      font-weight: 700;
       color: var(--colorBlanco);
       } 
       #telefono{
@@ -852,7 +844,6 @@ header nav.active {
       scale: 100%;
     }
   #informacion1 {
-        display: block;
         max-width: 1160px;
         margin-left: 3em;
         margin-right: 3em;
@@ -921,9 +912,6 @@ header nav.active {
     #actividades h3{
       font-size: 1.6em;
     }
-    #actividades .article4 img{
-      display: block;
-    }
     /* pie de página */
     .logo{
       width: 10em;
@@ -936,7 +924,7 @@ header nav.active {
       border-radius: 2em;
       color: var(--colorAzul);
       font-size: 1em;
-      font-weight: 800;
+      font-weight: 700;
       margin-left: 1em;
       transition: 0.3s;
     }
@@ -963,17 +951,12 @@ header nav.active {
       background-color:var(--colorBlanco);
       border: none; 
       cursor: pointer;
-      font-weight: 800;
+      font-weight: 700;
     }
     /* primer section */
      .introduccion1 {
      display: none;
       }
-    /* section grid */
-     .introduccion {
-     display: block;
-      }
-}
 @media all and (min-width:1200px){
   .oficina{ 
     padding-left: 3.8em;
@@ -1001,7 +984,7 @@ header nav.active {
       font-size: 1.3em;
       }
     span3{
-      font-weight: 900;
+      font-weight: 700;
       font-size: 200%;
       color: var(--colorNaranja);
     }
@@ -1021,7 +1004,6 @@ header nav.active {
         width: 160%;            
         max-width: 600px;       /* Ajusta este valor al tamaño original de tus fotos */
         height: auto !important; /* Mantiene la proporción original sin recortar */
-        display: block;
         margin: 0 auto;
         padding: 0; 
       }
@@ -1056,7 +1038,6 @@ header nav.active {
     /* Como no tienes un div que las envuelva, usamos este truco de CSS */
     #informacion1 img[alt="camioneta"],
     #informacion1 img[alt="oficina"] {
-        display: block;
         width: 350px;        /* Tamaño fijo para que se vean simétricas */
         height: auto;
     }
@@ -1069,12 +1050,6 @@ header nav.active {
         align-content: center;
         justify-items: center; /* Aquí está la clave del centrado total */
     }
-      .imagen{
-        display: block;
-      }
-      .imagen{
-        display: block;
-      }
         header{
       display: flex;
       position: sticky;
@@ -1117,4 +1092,5 @@ header nav.active {
     .contenedor{
        max-width: none;  
 }
-  } 
+  }
+  }
