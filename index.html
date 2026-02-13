@@ -101,7 +101,7 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </article>
                 </section>
-              <div id="informacion">
+              <section id="informacion">
                     <article>
                       <h3>CONTACTO DE VENTAS</h3>
                       <ul class="espacio">
@@ -126,8 +126,7 @@
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </article>
-              </div>
-        </div>
+                </section>
           <section id="fondo">
               <div>
                 <h3>CONSULTAS</h3>
@@ -188,13 +187,10 @@
       <ul>
                 <li class="label">Dirección:</li>
                 <li class="data">Héctor Gutiérrez Ruiz 1080, Montevideo</li>
-                
                 <li class="label">Teléfono de oficina:</li>
                 <li class="data">2900 9863</li>
-                
                 <li class="label">Teléfono de emergencias:</li>
                 <li class="data">099 266 876</li>
-                
                 <li class="label">Correo electrónico:</li>
                 <li class="data">sanitarials@gmail.com</li>
             </ul>
@@ -217,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const ham = document.getElementById('ham');
     const nav = document.querySelector('header nav');
     const links = document.querySelectorAll('header nav a');
-
     if (ham && nav) {
         // ABRIR Y CERRAR
         ham.addEventListener('click', (e) => {
@@ -226,7 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ham.classList.toggle('open');
             nav.classList.toggle('active');
         });
-
         // CERRAR AL HACER CLIC EN UN LINK (Para navegación interna)
         links.forEach(link => {
             link.addEventListener('click', () => {
@@ -234,7 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 nav.classList.remove('active');
             });
         });
-
         // CERRAR AL HACER CLIC FUERA DEL MENÚ
         document.addEventListener('click', (e) => {
             if (!nav.contains(e.target) && !ham.contains(e.target)) {
@@ -249,10 +242,8 @@ document.querySelectorAll('header nav a').forEach(anchor => {
         // Solo aplicar en móviles (menor a 768px)
         if (window.innerWidth <= 768) {
             const targetId = this.getAttribute('href');
-            
             if (targetId.startsWith("#")) {
                 e.preventDefault();
-                
                 let offsetPosition = 0;
                 if (targetId !== "#" && targetId !== "#inicio") {
                     const targetElement = document.querySelector(targetId);
@@ -261,14 +252,12 @@ document.querySelectorAll('header nav a').forEach(anchor => {
                         offsetPosition = targetElement.offsetTop - 90;
                     }
                 }
-
                 // Aquí controlas la DURACIÓN del viaje (1500 = 1.5 segundos)
                 smoothScrollTo(offsetPosition, 1500);
             }
         }
     });
 });
-
 /**
  * Función que controla la VELOCIDAD de desplazamiento
  * @param {number} endY - Posición final en píxeles
@@ -278,21 +267,16 @@ function smoothScrollTo(endY, duration) {
     const startY = window.pageYOffset || window.scrollY;
     const distance = endY - startY;
     let startTime = null;
-
     function animation(currentTime) {
         if (startTime === null) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
-        
         // Esta fórmula (EaseInOut) hace que el viaje sea lento-rápido-lento
         const progress = easeInOutQuart(timeElapsed, startY, distance, duration);
-        
         window.scrollTo(0, progress);
-        
         if (timeElapsed < duration) {
             requestAnimationFrame(animation);
         }
     }
-
     // Una curva de velocidad más "premium" (Quart)
     function easeInOutQuart(t, b, c, d) {
         t /= d / 2;
@@ -300,7 +284,6 @@ function smoothScrollTo(endY, duration) {
         t -= 2;
         return -c / 2 * (t * t * t * t - 2) + b;
     }
-
     requestAnimationFrame(animation);
 }
 </script>
