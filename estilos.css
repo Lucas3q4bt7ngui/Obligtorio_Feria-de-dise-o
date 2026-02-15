@@ -170,7 +170,7 @@ h4 {
   margin-bottom: 10px; 
   font-size: 14px; 
   font-weight: 400; }
-dl{ padding-top: 1em; }
+dl{ padding: 1em 0 2em 0.5em; }
 .dl{ padding-top: 0; }
 dt, dd, dd a {  
 font-style: normal;
